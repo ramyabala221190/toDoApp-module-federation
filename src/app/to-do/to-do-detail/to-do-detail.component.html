@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+    <thead>
+     <tr>
+     <th>Title</th>
+     <th>Completed Status</th>
+     <th>User ID</th>
+     </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of todoDetail$|async">
+             <td>{{detail.title}}</td>
+            <td>{{detail.completed}}</td>
+            <td>{{detail.userId}}</td>
+        </tr>
+    </tbody>
+</table>
