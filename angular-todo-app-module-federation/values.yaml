@@ -11,9 +11,9 @@ services:
   devAppPort: 8086
   uatAppPort: 8087
   prodAppPort: 8088
-  nodeDevPort: 35006
-  nodeUatPort: 35016
-  nodeProdPort: 35026
+  nodeDevPort: 30006
+  nodeUatPort: 30016
+  nodeProdPort: 30026
 
 environment: ""
 
