@@ -40,6 +40,9 @@ COPY --from=node /app/dist/to-do-app /usr/share/nginx/html/
 # have added an additional check. When we are routing to other components with different paths,
 # nginx might think its a server side path and return 404. In such cases we instruct nginx to 
 # redirect to index.html file. This is very important
+
+RUN rm -r /etc/nginx/conf.d/default.conf
+
 COPY nginx/nginx.config /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
