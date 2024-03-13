@@ -1,0 +1,23 @@
+
+pod:
+ containerName: "container"
+ imageName: ""
+ containerPort: 80
+
+
+services:
+  name: "service"
+  type: NodePort  #due to external IP pending issue, changed from LoadBalancer to NodePort
+  devAppPort: 8086
+  uatAppPort: 8087
+  prodAppPort: 8088
+  nodeDevPort: 5006
+  nodeUatPort: 5016
+  nodeProdPort: 5026
+
+environment: ""
+
+config:
+  name: todo-app-config
+  volume: todo-app-config-vol
+  mountPath: config
