@@ -4,5 +4,5 @@ metadata:
   name: uat-todo-app-config
 
 data:
-  env: "uat"
-
+  env: {{.Values.environment}}
+  host: {{.Values.host.uat}}
