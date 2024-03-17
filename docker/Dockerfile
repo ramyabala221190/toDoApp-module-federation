@@ -43,8 +43,8 @@ COPY --from=node /app/dist/to-do-app /usr/share/nginx/html/todos
 
 RUN rm -r /etc/nginx/conf.d/default.conf
 
-#COPY nginx/nginx.config /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.config /etc/nginx/templates/nginx.conf.template
+COPY nginx/nginx.config /etc/nginx/conf.d/default.conf
+#COPY nginx/nginx.config /etc/nginx/templates/nginx.conf.template
 
 EXPOSE 80
 
