@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { ToDoContainerComponent } from './to-do-container/to-do-container.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ToDoDetailComponent } from './to-do-detail/to-do-detail.component';
@@ -31,6 +31,12 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+  ],
+  providers:[
+    {
+      provide:APP_BASE_HREF,
+      useValue:'/todos/'
+    }
   ]
 })
 export class ToDoModule { }
