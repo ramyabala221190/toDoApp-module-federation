@@ -39,12 +39,10 @@ spec:
                configMapKeyRef:
                   name: {{.Values.environment}}-{{.Values.config.name}}
                   key: host
-            - name: hostName
+           - name: hostName
              valueFrom:
                configMapKeyRef:
-              # The ConfigMap containing the value you want to assign to SPECIAL_LEVEL_KEY
                   name: common-{{.Values.config.name}}
-              # Specify the key associated with the value
                   key: hostName
      volumes:
      - name: {{.Values.config.volume}}
