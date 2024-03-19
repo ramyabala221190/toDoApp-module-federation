@@ -3,7 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Observable } from 'rxjs';
+import { EnvConfigService } from './env-config.service';
+import { APP_BASE_HREF } from '@angular/common';
 
+function appInitialization(envConfigService:EnvConfigService) :()=>Observable<any>{
+  return ()=>envConfigService.loadConfig();
+}
 
 @NgModule({
   declarations: [
@@ -13,7 +19,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [{
+    provide:APP_INITIALIZER,
+    useFactory:appInitialization,
+    deps:[EnvConfigService],
+    multi:true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
