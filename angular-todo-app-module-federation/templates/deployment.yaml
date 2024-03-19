@@ -39,6 +39,11 @@ spec:
                configMapKeyRef:
                   name: {{.Values.environment}}-{{.Values.config.name}}
                   key: host
+           - name: env
+             valueFrom:
+               configMapKeyRef:
+                  name: {{.Values.environment}}-{{.Values.config.name}}
+                  key: env
            - name: hostName
              valueFrom:
                configMapKeyRef:
