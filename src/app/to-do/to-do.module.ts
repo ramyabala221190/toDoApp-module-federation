@@ -33,10 +33,6 @@ const routes: Routes = [{
     RouterModule.forChild(routes),
   ],
   providers:[
-    {
-      provide:APP_BASE_HREF,
-      useValue:'/todos/'
-    }
   ]
 })
 export class ToDoModule { }
