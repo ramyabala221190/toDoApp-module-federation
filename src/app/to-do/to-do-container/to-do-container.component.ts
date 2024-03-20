@@ -13,6 +13,7 @@ export class ToDoContainerComponent {
   appName:string="toDoApp";
 
   ngOnInit(){
-    this.config=this.envConfigService.getConfiguration()[this.appName];
+    console.log(this.envConfigService.getConfiguration(this.appName))
+    this.config=this.envConfigService.getConfiguration(this.appName);
     }
 }
