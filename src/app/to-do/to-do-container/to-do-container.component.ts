@@ -12,6 +12,7 @@ export class ToDoContainerComponent {
   config:envConfigModel|undefined;
 
   ngOnInit(){
+    console.log("ngOnInit in todocontainer")
     this.config=this.envConfigService.fetchEnvConfig();
     }
 }

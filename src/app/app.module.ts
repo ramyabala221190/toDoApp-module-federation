@@ -8,7 +8,9 @@ import { EnvConfigService } from './env-config.service';
 import { APP_BASE_HREF } from '@angular/common';
 
 function appInitialization(envConfigService:EnvConfigService) :()=>Observable<any>{
-  return ()=>envConfigService.loadConfig();
+  return ()=>{
+    console.log("app initializer in todoapp")
+    return envConfigService.loadConfig();}
 }
 
 @NgModule({

@@ -17,6 +17,7 @@ export class EnvConfigService {
   }
 
   loadConfig(){
+    console.log("calling loadConfig in todoapp")
      return this.http.get('/assets/configurations/config.json').pipe(
       tap((config:any)=>{
         console.log(config);
@@ -26,6 +27,7 @@ export class EnvConfigService {
   }
 
   fetchEnvConfig(){
+    console.log(this.envConfig)
     return this.envConfig;
   }
 }
