@@ -4,8 +4,6 @@ import { ToDoContainerComponent } from './to-do-container/to-do-container.compon
 import { RouterModule, Routes } from '@angular/router';
 import { ToDoDetailComponent } from './to-do-detail/to-do-detail.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
-import { Observable } from 'rxjs';
-import { EnvConfigService } from '../env-config.service';
 
 const routes: Routes = [{
   path:"",
