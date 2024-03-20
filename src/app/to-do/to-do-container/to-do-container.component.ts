@@ -13,6 +13,6 @@ export class ToDoContainerComponent {
 
   ngOnInit(){
     console.log("ngOnInit in todocontainer")
-    this.config=this.envConfigService.appConfigurationList["todoApp"];
+    this.config=this.envConfigService.getConfiguration()["todoApp"];
     }
 }
