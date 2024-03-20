@@ -10,8 +10,9 @@ export class ToDoContainerComponent {
   constructor(private envConfigService:ModuleFederationConfigLibService){}
 
   config:configModel|undefined;
+  appName:string="todoApp";
 
   ngOnInit(){
-    this.config=this.envConfigService.getConfiguration()["todoApp"];
+    this.config=this.envConfigService.getConfiguration()[this.appName];
     }
 }
