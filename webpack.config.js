@@ -7,7 +7,7 @@ const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
   path.join(__dirname, 'tsconfig.json'),
   [/* mapped paths to share */
-  ""
+  "module-federation-config-lib"
 ]);
 
 module.exports = {

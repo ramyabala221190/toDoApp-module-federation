@@ -1,17 +1,8 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Observable } from 'rxjs';
-import { EnvConfigService } from './env-config.service';
-import { APP_BASE_HREF } from '@angular/common';
-
-function appInitialization(envConfigService:EnvConfigService) :()=>Observable<any>{
-  return ()=>{
-    console.log("app initializer in todoapp")
-    return envConfigService.loadConfig();}
-}
 
 @NgModule({
   declarations: [
@@ -21,12 +12,7 @@ function appInitialization(envConfigService:EnvConfigService) :()=>Observable<an
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [{
-    provide:APP_INITIALIZER,
-    useFactory:appInitialization,
-    deps:[EnvConfigService],
-    multi:true
-  }
+  providers: [
 ],
   bootstrap: [AppComponent]
 })

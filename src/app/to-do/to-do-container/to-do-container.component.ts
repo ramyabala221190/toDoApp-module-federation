@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EnvConfigService, envConfigModel } from 'src/app/env-config.service';
+import { ModuleFederationConfigLibService, configModel } from 'module-federation-config-lib';
 
 @Component({
   selector: 'app-to-do-container',
@@ -7,12 +7,12 @@ import { EnvConfigService, envConfigModel } from 'src/app/env-config.service';
   styleUrls: ['./to-do-container.component.scss']
 })
 export class ToDoContainerComponent {
-  constructor(private envConfigService:EnvConfigService){}
+  constructor(private envConfigService:ModuleFederationConfigLibService){}
 
-  config:envConfigModel|undefined;
+  config:configModel|undefined;
 
   ngOnInit(){
     console.log("ngOnInit in todocontainer")
-    this.config=this.envConfigService.fetchEnvConfig();
+    this.config=this.envConfigService.appConfigurationList["todoApp"];
     }
 }
