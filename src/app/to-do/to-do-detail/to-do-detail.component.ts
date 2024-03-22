@@ -16,7 +16,6 @@ export class ToDoDetailComponent {
   ngOnInit(){
     this.todoDetail$=this.activeRoute.paramMap.pipe(
       mergeMap((params:any)=>{
-      console.log(params.get('id'));
       return this.todoService.fetchToDoDetail(params.get('id'))
     }))
   }

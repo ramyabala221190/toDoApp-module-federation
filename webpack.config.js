@@ -31,7 +31,7 @@ module.exports = {
 
         // For remotes (please adjust)
         name: "toDoApp",
-        filename: "remoteToDoApp.js", //filename is of your choice
+        filename: "remote-toDoApp.js", //filename is of your choice
         exposes: {
             './myToDoModule': './src/app/to-do/to-do.module.ts'
         },        
