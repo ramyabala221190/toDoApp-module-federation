@@ -12,7 +12,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "toDoApp",
-    publicPath: "auto"
+    publicPath: "/toDoApp/",
+    path: path.resolve(__dirname, "dist/to-do-app/toDoApp")
   },
   optimization: {
     runtimeChunk: false

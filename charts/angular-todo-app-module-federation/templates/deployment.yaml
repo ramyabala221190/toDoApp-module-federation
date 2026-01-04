@@ -14,6 +14,9 @@ spec:
     metadata:
       labels:
         app: {{.Chart.Name}}-deployment-{{.Values.environment}}
+      annotations: # This checksum will change whenever the ConfigMap changes 
+        checksum/common-config: {{ include (print $.Template.BasePath "/common-config.yaml") . | sha256sum }} 
+        checksum/env-config: {{ include (print $.Template.BasePath (printf "/%s-config.yaml" .Values.environment)) . | sha256sum }}
 
     spec:
      containers:
@@ -25,37 +28,26 @@ spec:
          - name: {{.Values.config.volume}}
            mountPath: /{{.Values.config.mountPath}}
            readOnly: true
-         - name: common-{{.Values.config.volume}}
-           mountPath: /{{.Values.config.mountPath}}
-           readOnly: true
          env:
            - name: nginxPort
              valueFrom:
                configMapKeyRef:
                   name: common-{{.Values.config.name}}
                   key: nginxPort
-           - name: host
+           - name: appName
              valueFrom:
                configMapKeyRef:
-                  name: {{.Values.environment}}-{{.Values.config.name}}
-                  key: host
+                  name: common-{{.Values.config.name}}
+                  key: appName
            - name: env
              valueFrom:
                configMapKeyRef:
                   name: {{.Values.environment}}-{{.Values.config.name}}
                   key: env
-           - name: hostName
-             valueFrom:
-               configMapKeyRef:
-                  name: common-{{.Values.config.name}}
-                  key: hostName
      volumes:
      - name: {{.Values.config.volume}}
        configMap:
          name: {{.Values.environment}}-{{.Values.config.name}}
-     - name: common-{{.Values.config.volume}}
-       configMap:
-         name: common-{{.Values.config.name}}
 
 #we are loading all environment variables from the config map with name :dev-app-config
 

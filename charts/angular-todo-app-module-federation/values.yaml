@@ -1,0 +1,19 @@
+
+pod:
+ containerName: "container"
+ imageName: ""
+ containerPort: 80
+
+appName: "toDoApp"
+
+services:
+  name: "todoapp-service"
+  type: ClusterIP
+  port: 8081
+ 
+environment: ""
+
+config:
+  name: todo-app-config
+  volume: todo-app-config-vol
+  mountPath: config

@@ -1,9 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: dev-todo-app-config
+  name: uat-todo-app-config
 
 data:
   env: {{.Values.environment}}
-  host: "{{.Values.host.dev}}"
-
