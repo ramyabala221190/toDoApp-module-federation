@@ -12,7 +12,7 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "toDoApp",
-    //publicPath: "/toDoApp/",
+    publicPath: "/toDoApp/",
     //path: path.resolve(__dirname, "dist/to-do-app/toDoApp")
   },
   optimization: {
