@@ -13,6 +13,7 @@ module.exports = {
   output: {
     uniqueName: "toDoApp",
     publicPath: "/toDoApp/",
+    assetModuleFilename: "toDoApp/assets/[name].[hash][ext]"
     //path: path.resolve(__dirname, "dist/to-do-app/toDoApp")
   },
   optimization: {
