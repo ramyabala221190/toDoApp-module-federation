@@ -58,7 +58,7 @@ jobs:
              echo "TAG=${{ github.event.inputs.tag }}" >> $GITHUB_ENV
              fi
 
-          - name: Login to DockerHub
+          - name: Login to DockerHub for building and pushing docker image
           # executed only for dev
             if: ${{ github.event.inputs.environment == 'dev' }}
             uses: docker/login-action@v3
@@ -68,7 +68,7 @@ jobs:
               # added the dockerhub username as repo variable and password as repo secret
 
 
-          - name: Build Docker image for express app
+          - name: Build and push Docker image for ToDo app
           # executed only for dev
             if: ${{ github.event.inputs.environment == 'dev' }}
             uses: docker/build-push-action@v5
@@ -105,7 +105,7 @@ jobs:
                kubectl create namespace ${{ github.event.inputs.environment }}-namespace --dry-run=client -o yaml | kubectl apply -f -
                kubectl config set-context --current --namespace=${{ github.event.inputs.environment }}-namespace
 
-          - name: Login to Docker Hub for Helm 
+          - name: Login to Docker Hub for Pushing/Pulling helm charts
             env: 
               DOCKERHUB_REGISTRY_USERNAME: ${{ vars.DOCKERHUB_USERNAME }} 
               DOCKERHUB_REGISTRY_PA_TOKEN: ${{ secrets.DOCKERHUB_PA_TOKEN }} 

@@ -18,10 +18,10 @@
     "set-context-dev":"kubectl config set-context --current --namespace=dev-namespace",
     "set-context-uat":"kubectl config set-context --current --namespace=uat-namespace",
     "set-context-prod":"kubectl config set-context --current --namespace=prod-namespace",
-    "helm-pack":"helm package --version=1.0.1 ./charts/angular-todo-app-module-federation/",
+    "helm-pack":"helm package --version=1.0.1 ./charts/angular-todo-app-module-federation/ --destination ./artifacts",
     "helm-upgrade-dev":"helm upgrade todo-app-release ./charts/angular-todo-app-module-federation/ --install --debug --values ./charts/angular-todo-app-module-federation/values.yaml --set pod.imageName=todo-app:12 --set environment=dev",
-    "helm-upgrade-uat":"helm upgrade todo-app-release  ./angular-todo-app-module-federation-1.0.1.tgz --install --debug --values ./charts/angular-todo-app-module-federation/values.yaml --set pod.imageName=todo-app:12 --set environment=uat",
-    "helm-upgrade-prod":"helm upgrade todo-app-release ./angular-todo-app-module-federation-1.0.1.tgz --install --debug --values ./charts/angular-todo-app-module-federation/values.yaml --set pod.imageName=todo-app:12 --set environment=prod"
+    "helm-upgrade-uat":"helm upgrade todo-app-release  ./artifacts/angular-todo-app-module-federation-1.0.1.tgz --install --debug --values ./charts/angular-todo-app-module-federation/values.yaml --set pod.imageName=todo-app:12 --set environment=uat",
+    "helm-upgrade-prod":"helm upgrade todo-app-release ./artifacts/angular-todo-app-module-federation-1.0.1.tgz --install --debug --values ./charts/angular-todo-app-module-federation/values.yaml --set pod.imageName=todo-app:12 --set environment=prod"
 
   },
   "private": true,
