@@ -20,3 +20,5 @@ UPDATE src/main.ts (58 bytes)
 ✔ Packages installed successfully.
 
 C:\Users\User\angular\microfrontends\module-federation-updated\toDoApp>
+
+All deployment, routing info given in users-app and shell-app repo
